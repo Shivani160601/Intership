@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shivani - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            background-color: #6c63ff;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        nav .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, #6c63ff, #a78bfa);
+            color: white;
+            padding: 100px 40px;
+            text-align: center;
+        }
+
+        .hero .avatar {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background-color: white;
+            margin: 0 auto 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: #6c63ff;
+            border: 5px solid rgba(255,255,255,0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .hero .avatar:hover {
+            transform: scale(1.05);
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .hero p.tagline {
+            font-size: 18px;
+            margin-bottom: 8px;
+            opacity: 0.9;
+        }
+
+        .hero p.college {
+            font-size: 15px;
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+
+        .hero .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: white;
+            color: #6c63ff;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        }
+
+        .hero .btn:hover {
+            background-color: #f0f4f8;
+            transform: translateY(-3px);
+        }
+
+        /* ===== SECTION GENERAL ===== */
+        section {
+            padding: 70px 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 30px;
+            color: #6c63ff;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .underline {
+            width: 60px;
+            height: 4px;
+            background-color: #6c63ff;
+            margin: 0 auto 40px auto;
+            border-radius: 10px;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-content {
+            background-color: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+            line-height: 1.8;
+            font-size: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .about-content:hover {
+            transform: translateY(-3px);
+        }
+
+        .about-content p {
+            margin-bottom: 12px;
+        }
+
+        .about-content span {
+            color: #6c63ff;
+            font-weight: bold;
+        }
+
+        /* ===== EDUCATION SECTION ===== */
+        #education {
+            background-color: #eef0ff;
+            max-width: 100%;
+            padding: 70px 40px;
+        }
+
+        #education .inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .edu-card {
+            background-color: white;
+            padding: 25px 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+            border-left: 5px solid #6c63ff;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .edu-card:hover {
+            transform: translateX(5px);
+        }
+
+        .edu-card h3 {
+            font-size: 18px;
+            color: #6c63ff;
+            margin-bottom: 6px;
+        }
+
+        .edu-card p {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 4px;
+        }
+
+        .edu-card .year {
+            display: inline-block;
+            background-color: #6c63ff;
+            color: white;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        /* ===== SKILLS SECTION ===== */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .skill-box {
+            background-color: white;
+            padding: 18px 28px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #6c63ff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+            cursor: default;
+        }
+
+        .skill-box:hover {
+            border-color: #6c63ff;
+            transform: translateY(-4px);
+            background-color: #f3f0ff;
+        }
+
+        /* ===== PROJECTS SECTION ===== */
+        #projects {
+            background-color: #eef0ff;
+            max-width: 100%;
+            padding: 70px 40px;
+        }
+
+        #projects .inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 28px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(108,99,255,0.2);
+        }
+
+        .project-card .icon {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .project-card h3 {
+            font-size: 18px;
+            color: #6c63ff;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .project-card .tag {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 4px 12px;
+            background-color: #eef0ff;
+            color: #6c63ff;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact-box {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-box:hover {
+            transform: translateY(-3px);
+        }
+
+        .contact-box p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 25px;
+            background-color: #f3f0ff;
+            border-radius: 12px;
+            font-size: 15px;
+            color: #6c63ff;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background-color: #6c63ff;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .contact-item .icon {
+            font-size: 20px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: #6c63ff;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        footer span {
+            color: #ffd700;
+        }
+
+        /* ===== HOBBIES/INTERESTS ===== */
+        .hobbies-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .hobby-item {
+            background-color: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-size: 15px;
+            color: #555;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            cursor: default;
+        }
+
+        .hobby-item:hover {
+            transform: translateY(-4px);
+            background-color: #6c63ff;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">Shivani R</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <div class="hero">
+        
+        <h1>Hello, I'm Shivani!</h1>
+        <p class="tagline">Computer Science Engineering Student 🎓</p>
+        <p class="college">📍 ACGCET, Karaikudi | First Year CSE (2026)</p>
+        <a href="#contact" class="btn">Get In Touch</a>
+    </div>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="underline"></div>
+        <div class="about-content">
+            <p>
+                Hi! I'm <span>Shivani</span>, a passionate and enthusiastic
+                <span>Computer Science Engineering</span> student currently in my
+                first year at <span>Alagappa Chettiar Government College of Engineering
+                and Technology (ACGCET)</span>, Karaikudi.
+            </p>
+            <p>
+                I'm excited about the world of technology and software development.
+                Being in the batch of <span>2026</span>, I'm eager to learn new things,
+                build interesting projects, and grow as a developer every single day.
+            </p>
+            <p>
+                I believe in working hard, staying curious, and never stopping learning.
+                I'm always looking for opportunities to improve my skills and explore new
+                areas in the field of Computer Science. 💡
+            </p>
+        </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <div id="education">
+        <div class="inner">
+            <h2 class="section-title">Education</h2>
+            <div class="underline"></div>
+
+            <div class="edu-card">
+                <h3>🎓 B.E - Computer Science and Engineering</h3>
+                <p><strong>Institution:</strong> Alagappa Chettiar Government College of Engineering and Technology (ACGCET)</p>
+                <p><strong>Location:</strong> Karaikudi, Tamil Nadu</p>
+                <p><strong>Status:</strong> Currently Pursuing - First Year Completed</p>
+                <span class="year">2023 - 2026</span>
+            </div>
+
+            <div class="edu-card">
+                <h3>📚 Higher Secondary Education (12th Grade)</h3>
+                <p><strong>Stream:</strong> Computer Science / Mathematics</p>
+                <p><strong>Board:</strong> Tamil Nadu State Board</p>
+                <span class="year">Completed - 2023</span>
+            </div>
+
+            <div class="edu-card">
+                <h3>📖 Secondary Education (10th Grade)</h3>
+                <p><strong>Board:</strong> Tamil Nadu State Board</p>
+                <span class="year">Completed - 2021</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills">
+        <h2 class="section-title">My Skills</h2>
+        <div class="underline"></div>
+        <div class="skills-grid">
+            <div class="skill-box"> C Programming</div>
+            <div class="skill-box"> Python (Basics)</div>
+            <div class="skill-box"> HTML</div>
+            <div class="skill-box"> CSS</div>
+            <div class="skill-box"> Data Structures</div>
+            <div class="skill-box"> Mathematics</div>
+            <div class="skill-box"> Problem Solving</div>
+            <div class="skill-box">Linux Basics</div>
+            <div class="skill-box"> MS Office</div>
+            <div class="skill-box"> Teamwork</div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <div id="projects">
+        <div class="inner">
+            <h2 class="section-title">Projects</h2>
+            <div class="underline"></div>
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <div class="icon">🧮</div>
+                    <h3>Simple Calculator</h3>
+                    <p>
+                        Built a basic calculator using C programming that performs
+                        arithmetic operations like addition, subtraction,
+                        multiplication, and division.
+                    </p>
+                    <span class="tag">C Programming</span>
+                </div>
+
+                <div class="project-card">
+                    <div class="icon">🌐</div>
+                    <h3>Personal Portfolio Website</h3>
+                    <p>
+                        Designed and developed a personal portfolio website using
+                        HTML and CSS to showcase my skills, education, and projects.
+                    </p>
+                    <span class="tag">HTML & CSS</span>
+                </div>
+
+                <div class="project-card">
+                    <div class="icon">📋</div>
+                    <h3>Student Record System</h3>
+                    <p>
+                        A simple Python-based program to store, retrieve, and
+                        manage student information like name, marks, and grade.
+                    </p>
+                    <span class="tag">Python</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- HOBBIES SECTION -->
+    <section id="hobbies">
+        <h2 class="section-title">Interests & Hobbies</h2>
+        <div class="underline"></div>
+        <div class="hobbies-grid">
+            <div class="hobby-item"> Reading</div>
+            <div class="hobby-item"> Listening to Music</div>
+            <div class="hobby-item"> Learning New Tech</div>
+            <div class="hobby-item"> Writing</div>
+            <div class="hobby-item"> Drawing</div>
+            <div class="hobby-item"> Nature Walks</div>
+            
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <div id="contact" style="background-color: #eef0ff; padding: 70px 40px;">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="underline"></div>
+            <div class="contact-box">
+                <p>
+                    I'm always happy to connect! Whether you have a question,
+                    a project idea, or just want to say hi — feel free to reach out. 😊
+                </p>
+                <div class="contact-info">
+                    <a href="mailto:kavithahasini2007@gmail.com" class="contact-item">
+                        <span class="icon">📧</span>
+                        kavithahasini2007@gmail.com
+                    </a>
+                    <div class="contact-item">
+                        <span class="icon">📍</span>
+                        Karaikudi, Tamil Nadu
+                    </div>
+                    <div class="contact-item">
+                        <span class="icon">🎓</span>
+                        ACGCET - CSE
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Made with <span>♥</span> by Shivani | CSE Student @ ACGCET, Karaikudi | © 2025</p>
+    </footer>
+
+</body>
+</html>
